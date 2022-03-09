@@ -1,0 +1,44 @@
+@import '.././../../styles/global_variable.scss';
+.desktop-header {
+    background-color: $background;
+    color: white;
+    .content {
+        min-height: 66px;
+        // max-width: $max-content-width;
+        margin: auto;
+        align-items: center;
+        padding-right: 10px;
+        .header {
+            font-size: $f18;
+            margin-left: 20px;
+            width: 220px;
+        }
+        .selected-path {
+            flex: auto;
+            align-items: center;
+            padding-left: 24px;
+            .icon svg {
+                margin-right: 10px;
+                width: 24px;
+                height: 24px;
+            }
+            .title {
+                font-weight: 700;
+                font-size: $f18;
+            }
+        }
+    }
+    &.mobile {
+        .content {
+            .header {
+                flex: auto;
+                justify-content: center;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.ant-layout-header {
+    height: unset;
+}

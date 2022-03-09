@@ -1,0 +1,60 @@
+@import '../../../styles/global_variable.scss';
+.desktop-partner-detail {
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    justify-content: space-between;
+    width: 100%;
+    .title-root a {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        color: $background;
+    }
+    .dest {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #111827;
+    }
+    .dest-zone {
+        margin-top: 34px;
+        .item {
+            padding-right: 10px;
+        }
+        .title-dest {
+            font-size: 14px;
+            line-height: 20px;
+            color: #111827;
+            font-weight: 600;
+        }
+        .row-dest {
+            margin-bottom: 20px;
+        }
+    }
+    .name-table {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #1a202c;
+        margin-top: 31px;
+        margin-bottom: 20px;
+    }
+    .status-col {
+        display: flex;
+        .test {
+            margin-left: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 20px;
+            color: #3caf13;
+        }
+    }
+    .back-text {
+        font-size: 14px;
+        line-height: 20px;
+        text-align: right;
+        color: #42c0fb;
+    }
+}

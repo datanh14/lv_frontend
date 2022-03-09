@@ -1,0 +1,11 @@
+@import '.././../../styles/global_variable.scss';
+.desktop-footer {
+    height: 70px;
+    border-top: 1px solid #cbd5e1;
+    span {
+        font-size: $f12;
+    }
+    .highlight {
+        color: #4780fb;
+    }
+}

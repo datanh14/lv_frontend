@@ -1,0 +1,35 @@
+@import '.././../../styles/global_variable.scss';
+.my-avatar {
+    .icon-container {
+        cursor: pointer;
+    }
+    .user-icon {
+        cursor: pointer;
+        margin-right: 5px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        &.round {
+            // border: 1px solid white;
+            color: #fff;
+            background-color: #00b6f3;
+        }
+    }
+    .info {
+        margin-right: 10px;
+        .name {
+            font-size: $f12;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+        .email {
+            font-size: $f10;
+            font-weight: 300;
+            text-transform: capitalize;
+        }
+        * {
+            text-align: right;
+            line-height: 15px;
+        }
+    }
+}

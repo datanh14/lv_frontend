@@ -1,0 +1,67 @@
+// @import '@styles/global_variable.scss';
+@import '.././../../styles/global_variable.scss';
+.desktop-home-page {
+    color: white;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    .container {
+        padding: 10px 20px;
+        min-height: 100vh;
+        width: 100%;
+        height: 100%;
+        .content {
+            max-width: $max-content-width;
+            margin: auto;
+            .header {
+                font-size: $f18;
+            }
+        }
+    }
+    .login {
+        width: 400px;
+        max-width: 100%;
+        margin: auto;
+        margin-top: 150px;
+        button {
+            span {
+                width: 100% !important;
+                margin-left: -15px !important;
+            }
+        }
+        .title {
+            text-align: center;
+            font-size: $f30;
+            margin-bottom: 20px;
+            color:black
+        }
+    }
+    &.mobile {
+        .login {
+            //   margin-top: 50px;
+            .title {
+                font-size: $f18;
+            }
+        }
+    }
+}
+
+.my-popover {
+    .ant-popover-inner {
+        border-radius: 5px;
+    }
+    .ant-popover-inner-content {
+        padding: 8px 8px;
+        button {
+            background: #f1f5f9;
+            border-radius: 5px;
+            padding: 6px 15px;
+            height: auto;
+            min-width: 120px;
+            text-align: left;
+            &:hover {
+                background: $background;
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@import '.././../../styles/global_variable.scss';
+.desktop-partner-active {
+    padding: 20px 0;
+    .btn {
+        align-items: center;
+        display: flex;
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+        border-radius: 5px;
+        &.delete-btn {
+            color: $background;
+        }
+        &.accept-btn {
+            color: #3caf13;
+        }
+        &.detail-btn:hover {
+            path,
+            span {
+                stroke: #42c0fb;
+                color: #42c0fb;
+            }
+        }
+    }
+    .title {
+        color: $background;
+        font-weight: 700;
+        font-size: $f16;
+        margin-bottom: 20px;
+    }
+}

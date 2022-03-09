@@ -1,0 +1,26 @@
+@import '.././../../styles/global_variable.scss';
+.desktop-partner-register {
+    padding: 20px 0;
+    .btn {
+        align-items: center;
+        display: flex;
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+        border-radius: 5px;
+        &.delete-btn {
+            color: #ff3366;
+        }
+        &.accept-btn {
+            color: #3caf13;
+        }
+    }
+    .title {
+        color: $background;
+        font-weight: 600;
+        font-size: $f16;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,1 @@
+export const ImageConfig: any = {};

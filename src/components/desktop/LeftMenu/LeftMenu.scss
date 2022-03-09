@@ -1,0 +1,46 @@
+@import '.././../../styles/global_variable.scss';
+.left-menu {
+    // background: #ff3366;
+    border-right: none;
+    * {
+        color: $background !important;
+    }
+    svg {
+        * {
+            stroke: $background;
+        }
+    }
+    .ant-menu-sub.ant-menu-inline {
+        background-color: transparent;
+    }
+    .ant-menu-item.ant-menu-item-selected,
+    .ant-menu-item:active,
+    .ant-menu-submenu-title:active {
+        background-color: $menuActive;
+        font-weight: 600;
+    }
+    .ant-menu-item:hover {
+        background-color: $menuActive;
+    }
+    .ant-menu-submenu-selected,
+    .ant-menu-item-selected,
+    .ant-menu-item-selected a:hover,
+    .ant-menu-item a:hover,
+    .ant-menu-title-content a:hover,
+    .ant-menu-item-selected a:hover {
+        color: black;
+    }
+    .ant-menu-vertical .ant-menu-item::after,
+    .ant-menu-vertical-left .ant-menu-item::after,
+    .ant-menu-vertical-right .ant-menu-item::after,
+    .ant-menu-inline .ant-menu-item::after {
+        border-right: 3px solid #ffffff;
+    }
+    .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-expand-icon,
+    .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-arrow {
+        color: black;
+    }
+    .ant-menu-inline .ant-menu-item::after {
+        border-right: 3px solid #ffffff;
+    }
+}

@@ -1,0 +1,44 @@
+@import '../../../../styles/global_variable.scss';
+.desktop-layout {
+    height: 100vh;
+    &.desktop {
+        min-width: $min-content-width;
+    }
+    .header {
+        padding: 0;
+        background-color: transparent;
+    }
+    .dektop-layout-main {
+        height: 100%;
+    }
+    .dektop-layout-container {
+        // height: calc(100% - 64px);
+        .ant-layout-sider {
+            background: white;
+            border-right: 1px solid #c0e0fd;
+        }
+        .ant-layout-sider-children {
+            overflow: hidden auto;
+        }
+        .dektop-layout-content {
+            padding: 0 24px;
+            overflow: auto;
+            .dektop-layout-content-main {
+                min-height: calc(100% - 70px);
+            }
+        }
+    }
+    .ant-table-thead>tr>th,
+    .ant-table-tbody>tr>td,
+    .ant-table tfoot>tr>th,
+    .ant-table tfoot>tr>td {
+        padding: 5px;
+    }
+    &.mobile {
+        .dektop-layout-container {
+            .dektop-layout-content {
+                padding: 0 12px;
+            }
+        }
+    }
+}

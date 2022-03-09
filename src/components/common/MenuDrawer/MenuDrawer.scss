@@ -1,0 +1,36 @@
+@import '../../../styles/global_variable.scss';
+.menu-drawer {
+    .icon {
+        color: $background;
+        padding: 12px;
+        box-sizing: initial;
+        svg {
+            font-size: 24px;
+        }
+    }
+}
+
+.my-menu-drawer {
+    color: white;
+    .ant-drawer-content-wrapper {
+        max-width: 300px;
+    }
+    // .ant-drawer-content,
+    .ant-drawer-header {
+        background: $background;
+    }
+    .ant-drawer-title {
+        color: white;
+        text-align: left;
+        .header {
+            font-size: $f18;
+            width: 220px;
+        }
+    }
+    .ant-drawer-close {
+        display: none;
+    }
+    .ant-drawer-body {
+        padding: 0;
+    }
+}
