@@ -13,7 +13,31 @@ export const getRegisterPartnerList = (data?: any) => {
     data: { ...data, pageSize, pageNumb: current },
   });
 };
-
+export const getMajor = () => {
+  return api.get("/general/majors", {
+  });
+};
+export const getProvince = () => {
+  return api.get("/general/provinces", {
+  });
+};
+export const getRegions = () => {
+  return api.get("/general/regions", {
+  });
+};
+export const getRaces = () => {
+  return api.get("/general/races", {
+  });
+};
+export const getPriorities = () => {
+  return api.get("/general/priorities", {
+  });
+};
+export const actionCreatePerson = (data?: any) => {
+  return api.post("/examinees", {
+    data: { ...data },
+  });
+};
 export const getPartnerDetail = (id) => {
   return api.get("/aff/admin/get-partner-detail", {
     params: {

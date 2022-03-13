@@ -28,9 +28,7 @@ const DesktopHeader: FunctionComponent<DesktopHeaderProps> = ({
       <RowCS className='content'>
         {mode === 'mobile' && <MenuDrawer />}
         <RowC className='header'>
-          <MyImage src='/images/logo.svg' width={80} height={21} />
-          <Divider type='vertical' style={{ background: 'white' }} />
-          Affiliate
+        Quản lý học sinh
         </RowC>
         {mode === 'desktop' && (
           <RowC className='selected-path'>

@@ -3,6 +3,7 @@ import { AppMode } from '../../../const/interface';
 import { getRegisterPartnerList } from '../../../service/partner.service';
 // import { data } from "./mockup";
 import MyTable from '../../common/MyTable/MyTable';
+import CreatePerson from './CreatePerson/CreatePerson';
 import './DesktopPartnerRegister.scss';
 interface DesktopPartnerRegisterProps {
   mode?: AppMode;
@@ -180,6 +181,7 @@ const DesktopPartnerRegister: FunctionComponent<
   return (
     <div className='desktop-partner-register'>
       <div className='title'>Quản lí thí sinh</div>
+      <CreatePerson fetchData={fetchData} />
       <MyTable
         columns={columns}
         dataSource={data}
