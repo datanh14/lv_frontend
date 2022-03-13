@@ -1,24 +1,15 @@
-import { Button, Popconfirm } from "antd";
-import { FunctionComponent, useCallback, useEffect, useState } from "react";
-import { ReactComponent as AcceptIcon } from "../../../asset/icon/Accept.svg";
-import { ReactComponent as DeleteIcon } from "../../../asset/icon/Delete.svg";
-import { AppMode } from "../../../const/interface";
-import {
-  getApprovedAccount,
-  getRegisterPartnerList,
-} from "../../../service/partner.service";
-import { openNotificationWithIcon } from "../../../utils/helpers";
+import { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import { AppMode } from '../../../const/interface';
+import { getRegisterPartnerList } from '../../../service/partner.service';
 // import { data } from "./mockup";
-import MyTable from "../../common/MyTable/MyTable";
-import { Row } from "../../common/StyledElements";
-import TableFilter from "../../common/TableFilter/TableFilter";
-import "./DesktopPartnerRegister.scss";
+import MyTable from '../../common/MyTable/MyTable';
+import './DesktopPartnerRegister.scss';
 interface DesktopPartnerRegisterProps {
   mode?: AppMode;
 }
 const DesktopPartnerRegister: FunctionComponent<
   DesktopPartnerRegisterProps
-> = ({ mode = "desktop" }) => {
+> = ({ mode = 'desktop' }) => {
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(0);
   const [current, setCurrent] = useState(0);
@@ -26,73 +17,109 @@ const DesktopPartnerRegister: FunctionComponent<
   const [filter, setFilter] = useState({});
   const columns: any = [
     {
-      title: "ID",
-      dataIndex: "id",
+      title: 'ID',
+      dataIndex: 'id',
+      width: 50,
     },
     {
-      title: "Họ và tên",
-      dataIndex: "name",
+      title: 'Code',
+      dataIndex: 'code',
       width: 100,
     },
     {
-      title: "Số điện thoại",
-      dataIndex: "phone",
-      width: 120,
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
+      title: 'Phone',
+      dataIndex: 'phone',
       width: 100,
     },
     {
-      title: <div style={{ paddingLeft: 20 }}>Hành động</div>,
-      key: "action",
-      fixed: mode === "desktop" ? "right" : undefined,
-      width: 210,
-      render: (text, record) => (
-        <Row>
-          <Popconfirm
-            title="Bạn chắc chắn muốn xóa?"
-            okText="Chắc chắn"
-            cancelText="Hủy"
-            onConfirm={() => {
-              acctionApprovedAccount({
-                requestId: record?.id,
-                status: "REJECTED",
-              });
-            }}
-          >
-            <Button type="text" className="btn delete-btn">
-              <DeleteIcon />
-              Xóa
-            </Button>
-          </Popconfirm>
-          {record?.status !== "APPROVED" && (
-            <Popconfirm
-              title="Bạn chắc chắn muốn phê duyệt?"
-              okText="Chắc chắn"
-              cancelText="Hủy"
-              onConfirm={() => {
-                acctionApprovedAccount({
-                  requestId: record?.id,
-                  status: "APPROVED",
-                });
-              }}
-            >
-              <Button
-                type="text"
-                className="btn accept-btn"
-                onClick={() => {
-                  console.log("record", record);
-                }}
-              >
-                <AcceptIcon />
-                Phê duyệt
-              </Button>{" "}
-            </Popconfirm>
-          )}
-        </Row>
-      ),
+      title: 'Email',
+      dataIndex: 'email',
+      width: 150,
+    },
+    {
+      title: 'Gender',
+      dataIndex: 'gender',
+      width: 100,
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      width: 200,
+    },
+    {
+      title: 'Combination',
+      dataIndex: 'combination',
+      width: 150,
+    },
+    {
+      title: 'Classification',
+      dataIndex: 'classification',
+      width: 150,
+    },
+    {
+      title: 'Conduct',
+      dataIndex: 'conduct',
+      width: 150,
+    },
+    {
+      title: 'Admission',
+      dataIndex: 'admission',
+      width: 150,
+    },
+    {
+      title: 'IdentifyNumber',
+      dataIndex: 'identifyNumber',
+      width: 150,
+    },
+    {
+      title: 'FullName',
+      dataIndex: 'fullName',
+      width: 150,
+    },
+    {
+      title: 'DayOfBirth',
+      dataIndex: 'dayOfBirth',
+      width: 150,
+    },
+    {
+      title: 'FirstSubjectCode',
+      dataIndex: 'firstSubjectCode',
+      width: 150,
+    },
+    {
+      title: 'FirstSubjectScore',
+      dataIndex: 'firstSubjectScore',
+      width: 150,
+    },
+    {
+      title: 'SecondSubjectCode',
+      dataIndex: 'secondSubjectCode',
+      width: 150,
+    },
+    {
+      title: 'SecondSubjectScore',
+      dataIndex: 'secondSubjectScore',
+      width: 150,
+    },
+    {
+      title: 'ThirdSubjectCode',
+      dataIndex: 'thirdSubjectCode',
+      width: 150,
+    },
+    {
+      title: 'ThirdSubjectScore',
+      dataIndex: 'thirdSubjectScore',
+      width: 150,
+    },
+    {
+      title: 'HighSchoolScore',
+      dataIndex: 'highSchoolScore',
+      width: 150,
+    },
+    {
+      title: 'AspirationNumber',
+      dataIndex: 'aspirationNumber',
+      width: 150,
     },
   ];
 
@@ -100,38 +127,26 @@ const DesktopPartnerRegister: FunctionComponent<
     const req = getRegisterPartnerList(data);
     const exe = async () => {
       const response = await req;
-      if (response?.data?.code === 200) {
-        setData(response?.data?.data?.items || []);
-        setTotal(response?.data?.data?.total);
+      if (response?.status === 200) {
+        setData(response?.data?.data || []);
+        setTotal(response?.data?.totalPage);
         return true;
       }
     };
     return await exe();
   };
-  const acctionApprovedAccount = async (data) => {
-    const req = getApprovedAccount(data);
-    const exe = async () => {
-      const response = await req;
-      console.log("first", response?.data);
-      if (response?.data?.code === 200) {
-        openNotificationWithIcon("success", "", response?.data?.message);
-        fetchData();
-        return true;
-      } else {
-        openNotificationWithIcon("error", "", response?.data?.message);
-      }
-    };
-    return await exe();
-  };
+
   const fetchData = useCallback(() => {
     setLoading(true);
-    const req = getRegisterPartnerList(filter);
+    const req = getRegisterPartnerList();
     const exe = async () => {
       try {
         const response = await req;
-        if (response?.data?.code === 200) {
-          setData(response?.data?.data?.items || []);
-          setTotal(response?.data?.data?.total);
+        console.log('response', response);
+
+        if (response?.status === 200) {
+          setData(response?.data?.data || []);
+          setTotal(response?.data?.totalPage);
         }
       } catch (error) {}
       setLoading(false);
@@ -142,34 +157,34 @@ const DesktopPartnerRegister: FunctionComponent<
         req.cancel();
       }
     };
-  }, [filter]);
+  }, []);
   useEffect(() => {
     fetchData();
-  }, [fetchData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onChange = async (pagination) => {
     const { current } = pagination;
+    console.log('current', current);
     setLoading(true);
     const result = await getData({ current: current - 1, ...filter });
     setLoading(false);
+    console.log('result', result);
+
     if (result) {
       setCurrent(current - 1);
     }
   };
-
-  const onChangeFilter = async (values) => {
-    setFilter(values);
-  };
+  console.log('data', data);
 
   return (
-    <div className="desktop-partner-register">
-      <TableFilter mode={mode} onChangeFilter={onChangeFilter} />
-      <div className="title">Tài khoản đăng ký</div>
+    <div className='desktop-partner-register'>
+      <div className='title'>Quản lí thí sinh</div>
       <MyTable
         columns={columns}
         dataSource={data}
         rowKey={(item) => item.id}
-        scroll={mode === "desktop" ? { y: "calc(100vh - 440px)" } : {}}
+        scroll={mode === 'desktop' ? { y: 'calc(100vh )' } : {}}
         pagination={{
           total,
           pageSize: 10,

@@ -9,8 +9,8 @@ export const getPartnerList = (data?: any) => {
 
 export const getRegisterPartnerList = (data?: any) => {
   const { current = 0, pageSize = 10 } = data || {};
-  return api.post("/aff/admin/get-approval-request-list", {
-    data: { ...data, pageSize, pageNum: current },
+  return api.post("/examinees/search", {
+    data: { ...data, pageSize, pageNumb: current },
   });
 };
 

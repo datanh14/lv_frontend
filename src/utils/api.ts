@@ -30,13 +30,7 @@ if (!isServer()) {
 const request = axios.create({
   baseURL: configs().BASE_URL,
   headers: {
-    // 'Content-Type': 'application/json',
-    // "device-id": !isServer() ? `${localStorage.getItem(key)}` : "",
-    // deviceInfo: "PC-Web",
-    // version: configs().VERSION,
-    // appHash: AppHash,
-    // appId: configs().APP_ID,
-    // 'ca-id': '17',
+    "token": `Bearer ${localStorage.getItem("token-key")}` || ""
   },
 });
 

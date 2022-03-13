@@ -6,11 +6,11 @@ import { routesPath } from '../../../const/routerPath';
 
 export const menuData = [
   {
-    title: 'Quản lý tài khoản đối tác',
+    title: 'Quản lí',
     icon: <CertificateIcon />,
     children: [
       {
-        title: 'Tài khoản đăng ký',
+        title: 'Quản lí thí sinh',
         icon: <StatusDotIcon />,
         url: routesPath.partnerRegister,
       },
