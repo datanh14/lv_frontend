@@ -6,4 +6,5 @@ export const routesPath = {
   partnerCommission: '/partner/commission',
   partnerRevenue: '/partner/revenue',
   voucher: '/voucher',
+  addFile: "/addfile"
 };

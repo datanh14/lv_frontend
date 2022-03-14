@@ -15,18 +15,17 @@ export const menuData = [
         url: routesPath.partnerRegister,
       },
       {
-        title: 'Đối tác hiện tại',
+        title: 'Thêm file',
         icon: <StatusDotIcon />,
-        url: '',
+        url: routesPath.addFile,
       },
     ],
   },
   {
-    title: 'Quản lý hoa hồng',
+    title: '',
     icon: <DolarIcon />,
     url: '',
   },
- 
 ].map((item) => {
   const { children } = item;
   const keys = children?.map((i) => i?.url);

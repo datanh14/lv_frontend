@@ -61,3 +61,9 @@ export const getApprovedAccount = (data) => {
     data,
   });
 };
+export const postUploadFile = (data) => {
+  return api.post("/examinees/import", {
+    data,
+    headers: { 'content-type': 'multipart/form-data' }
+  });
+};
