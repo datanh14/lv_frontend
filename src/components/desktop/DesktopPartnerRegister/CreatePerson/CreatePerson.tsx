@@ -175,6 +175,7 @@ const CreatePerson: FunctionComponent<CreatePersonProps> = ({ fetchData }) => {
         const response = await req;
         if (response?.status === 200) {
           fetchData();
+          handleCancel();
         }
       } catch (error) {}
     };
@@ -303,7 +304,7 @@ const CreatePerson: FunctionComponent<CreatePersonProps> = ({ fetchData }) => {
               ))}
             </Select>
           </Form.Item>
-          <Form.Item name='priorityId' label='Tỉnh'>
+          <Form.Item name='provinceId' label='Tỉnh'>
             <Select
               placeholder='Chọn tỉnh/thành phố'
               onSelect={(value, option) =>

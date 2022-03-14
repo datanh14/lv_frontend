@@ -16,6 +16,7 @@ const DesktopPartnerRegister: FunctionComponent<
   const [current, setCurrent] = useState(0);
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState({});
+  const token = localStorage.getItem('token-key');
   const columns: any = [
     {
       title: 'ID',
@@ -158,11 +159,12 @@ const DesktopPartnerRegister: FunctionComponent<
         req.cancel();
       }
     };
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
   useEffect(() => {
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchData, token]);
+  console.log('token', token);
 
   const onChange = async (pagination) => {
     const { current } = pagination;
