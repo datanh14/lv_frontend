@@ -17,6 +17,34 @@ export const getMajor = () => {
   return api.get("/general/majors", {
   });
 };
+
+const getBaseOption = (newOption) => {
+  return {
+    ...newOption,
+    headers: {
+      ...newOption?.headers,
+    },
+  };
+};
+export const importFile = (data) => {
+  console.log("data11", data);
+
+  const option = {
+    headers: {
+      'content-type':
+        'multipart/form-data; boundary=----WebKitFormBoundaryqTqJIxvkWFYqvP5s',
+    },
+    baseURL: "http://35.222.124.243:8080/",
+    notifyError: true,
+    data: {
+      ...data,
+      configCode: 'MYTOUR',
+    },
+  };
+  return api.post("/examinees/import",
+    getBaseOption(option)
+  );
+};
 export const getProvince = () => {
   return api.get("/general/provinces", {
   });
