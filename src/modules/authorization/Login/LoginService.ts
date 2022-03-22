@@ -23,14 +23,15 @@ const getPlatform = () => {
 const getAppHash = () => {
   let timeStamp = new Date().getTime();
   timeStamp = timeStamp / 1000 - ((timeStamp / 1000) % 300);
-  let str = `${timeStamp}:${getPlatform() === 'website'
-    ? isDev()
-      ? '95b9699c-25e5-4811-bb7e-5d9163bd2dd8'
-      : process.env.NEXT_PUBLIC_HASH_KEY
-    : isDev()
+  let str = `${timeStamp}:${
+    getPlatform() === 'website'
+      ? isDev()
+        ? '95b9699c-25e5-4811-bb7e-5d9163bd2dd8'
+        : process.env.NEXT_PUBLIC_HASH_KEY
+      : isDev()
       ? '95b9699c-25e5-4811-bb7e-5d9163bd2dd8'
       : process.env.NEXT_PUBLIC_HASH_KEY_MOBILE
-    }`;
+  }`;
   const hash = CryptoJS.SHA256(str);
   const hashStr = CryptoJS.enc.Base64.stringify(hash);
   return hashStr;
@@ -43,7 +44,7 @@ export const isDev = () =>
     (window.location.hostname.includes('-dev') ||
       window.location.hostname.includes('localhost')));
 export const baseURL = () =>
-  isDev() ? 'http://35.222.124.243:8080/' : 'http://35.222.124.243:8080/';
+  isDev() ? 'http://34.134.19.48/' : 'http://34.134.19.48/';
 
 const devConfig = {
   APP_ID: 'mytour_web',
@@ -83,7 +84,6 @@ const getBaseOption = (newOption?: any) => {
 
 export const actionLogin = (data: some) => {
   const option = {
-
     baseURL: baseURL(),
     data,
     notifyError: true,
@@ -182,8 +182,8 @@ export const validateMytourAccessToken = (
             ? 'mytour_web'
             : process.env.NEXT_PUBLIC_APP_ID
           : isDev()
-            ? 'mytour_mobi_web'
-            : process.env.NEXT_PUBLIC_APP_ID_MOBILE) || '',
+          ? 'mytour_mobi_web'
+          : process.env.NEXT_PUBLIC_APP_ID_MOBILE) || '',
       appHash: getAppHash(),
       ...config?.headers,
     },
