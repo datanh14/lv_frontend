@@ -44,7 +44,7 @@ export const isDev = () =>
     (window.location.hostname.includes('-dev') ||
       window.location.hostname.includes('localhost')));
 export const baseURL = () =>
-  isDev() ? 'http://34.134.19.48/' : 'http://34.134.19.48/';
+  isDev() ? 'http://34.134.19.48:8080/' : 'http://34.134.19.48:8080/';
 
 const devConfig = {
   APP_ID: 'mytour_web',
